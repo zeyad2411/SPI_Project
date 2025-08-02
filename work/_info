@@ -1,6 +1,7 @@
 m255
 K4
 z2
+!s11f vlog 2021.1 2021.01, Jan 19 2021
 13
 !s112 1.1
 !i10d 8192
@@ -8,3 +9,26 @@ z2
 !i10f 100
 cModel Technology
 dC:/Users/User/Documents/Digital/Projects/Project1_DSP
+vRAM
+!s110 1754118829
+!i10b 1
+!s100 M3KEX[cRmZfHkZQK<?l882
+IYL5gfEXKQA<4nSM<me_lm2
+dC:/Users/User/Documents/My-Github/SPI_Project
+w1754118769
+8C:\Users\User\Documents\My-Github\SPI_Project\RAM.v
+FC:\Users\User\Documents\My-Github\SPI_Project\RAM.v
+!i122 0
+L0 1 62
+VDg1SIo80bB@j0V0VzS_@n1
+OL;L;2021.1;73
+r1
+!s85 0
+31
+!s108 1754118829.000000
+!s107 C:\Users\User\Documents\My-Github\SPI_Project\RAM.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:\Users\User\Documents\My-Github\SPI_Project\RAM.v|
+!i113 0
+o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+tCvgOpt 0
+n@r@a@m
