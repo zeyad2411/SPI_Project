@@ -10,22 +10,22 @@ z2
 cModel Technology
 dC:/Users/User/Documents/Digital/Projects/Project1_DSP
 vRAM
-!s110 1754118829
+!s110 1754119265
 !i10b 1
 !s100 M3KEX[cRmZfHkZQK<?l882
 IYL5gfEXKQA<4nSM<me_lm2
 dC:/Users/User/Documents/My-Github/SPI_Project
-w1754118769
+w1754118839
 8C:\Users\User\Documents\My-Github\SPI_Project\RAM.v
 FC:\Users\User\Documents\My-Github\SPI_Project\RAM.v
-!i122 0
+!i122 1
 L0 1 62
 VDg1SIo80bB@j0V0VzS_@n1
 OL;L;2021.1;73
 r1
 !s85 0
 31
-!s108 1754118829.000000
+!s108 1754119265.000000
 !s107 C:\Users\User\Documents\My-Github\SPI_Project\RAM.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:\Users\User\Documents\My-Github\SPI_Project\RAM.v|
 !i113 0
