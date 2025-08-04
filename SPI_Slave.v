@@ -26,12 +26,13 @@ module SPI_Slave (
   reg [9:0] shift_reg;
   reg receiving;
   reg [7:0] tx_shift_reg;
+  reg ctrl_bit;
 
   // SPI FSM states
   parameter IDLE       = 3'b000;
   parameter CHK_CMD    = 3'b001;
   parameter WRITE      = 3'b010;
-  parameter READ_ADDR  = 3'b011;
+  parameter READ_ADD  = 3'b011;
   parameter READ_DATA  = 3'b100;
 
   // ADDR_DATA Logic
@@ -73,9 +74,9 @@ module SPI_Slave (
           1: ns = IDLE;
         endcase
       end 
-      READ_ADDR: begin
+      READ_ADD: begin
         case(SS_n)
-          0: ns = READ_ADDR;
+          0: ns = READ_ADD;
           1: ns = IDLE;
         endcase
       end 
@@ -122,8 +123,11 @@ module SPI_Slave (
     end
     else if (receiving) begin
       bit_count <= bit_count + 1;
+      if (bit_count == 0) begin
+      ctrl_bit <= MOSI;
+      end
       // RX: Receive 10 bits after skipping the control bit
-      if (bit_count > 0 && bit_count <= 10) begin
+      else if (bit_count > 0 && bit_count <= 10) begin
         shift_reg <= {MOSI, shift_reg[9:1]}; // MSB-first shift in
       end
       // TX: Transmit bits 0–7 on MISO (MSB-first)
@@ -145,6 +149,4 @@ module SPI_Slave (
       end
   end
 end
-
-
 endmodule
