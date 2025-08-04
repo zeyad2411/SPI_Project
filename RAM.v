@@ -58,5 +58,4 @@ module RAM (
       endcase
     end
   end
-
 endmodule
