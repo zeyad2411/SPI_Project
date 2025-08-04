@@ -10,25 +10,70 @@ z2
 cModel Technology
 dC:/Users/User/Documents/Digital/Projects/Project1_DSP
 vRAM
-!s110 1754119265
+Z0 !s110 1754341924
 !i10b 1
-!s100 M3KEX[cRmZfHkZQK<?l882
-IYL5gfEXKQA<4nSM<me_lm2
-dC:/Users/User/Documents/My-Github/SPI_Project
-w1754118839
-8C:\Users\User\Documents\My-Github\SPI_Project\RAM.v
-FC:\Users\User\Documents\My-Github\SPI_Project\RAM.v
-!i122 1
-L0 1 62
-VDg1SIo80bB@j0V0VzS_@n1
-OL;L;2021.1;73
+!s100 CPk1DSBjJ82UDzF>5bBhU2
+I^]?nk5WlPDPcAACSbJ^zd0
+Z1 dC:/Users/User/Documents/My-Github/SPI_Project
+w1754334481
+8C:/Users/User/Documents/My-Github/SPI_Project/RAM.v
+FC:/Users/User/Documents/My-Github/SPI_Project/RAM.v
+!i122 5
+L0 1 61
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 OL;L;2021.1;73
 r1
 !s85 0
 31
-!s108 1754119265.000000
-!s107 C:\Users\User\Documents\My-Github\SPI_Project\RAM.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:\Users\User\Documents\My-Github\SPI_Project\RAM.v|
+Z4 !s108 1754341924.000000
+!s107 C:/Users/User/Documents/My-Github/SPI_Project/RAM.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/User/Documents/My-Github/SPI_Project/RAM.v|
 !i113 0
-o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-tCvgOpt 0
+Z5 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z6 tCvgOpt 0
 n@r@a@m
+vSPI_Slave
+R0
+!i10b 1
+!s100 ULK@8Y85UJCU4jW<R[Ykg3
+IVKE3jfi<0QR;EHFFIEbbj3
+R1
+w1754341107
+8C:\Users\User\Documents\My-Github\SPI_Project\SPI_Slave.v
+FC:\Users\User\Documents\My-Github\SPI_Project\SPI_Slave.v
+!i122 4
+L0 1 152
+R2
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:\Users\User\Documents\My-Github\SPI_Project\SPI_Slave.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:\Users\User\Documents\My-Github\SPI_Project\SPI_Slave.v|
+!i113 0
+R5
+R6
+n@s@p@i_@slave
+vspi_wrapper
+R0
+!i10b 1
+!s100 0^kCc:zZ`cDZi2oYiSllO1
+I^afj^=U8@OieCQZD80L:E2
+R1
+w1754341918
+8C:\Users\User\Documents\My-Github\SPI_Project\Main(Wrapper).v
+FC:\Users\User\Documents\My-Github\SPI_Project\Main(Wrapper).v
+!i122 6
+L0 1 29
+R2
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:\Users\User\Documents\My-Github\SPI_Project\Main(Wrapper).v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:\Users\User\Documents\My-Github\SPI_Project\Main(Wrapper).v|
+!i113 0
+R5
+R6
