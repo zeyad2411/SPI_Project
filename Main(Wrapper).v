@@ -2,8 +2,8 @@ module spi_wrapper(
     input   MOSI,
             SS_n,
             clk,
-            rst_n;
-    output  MISO;
+            rst_n,
+    output  MISO
 );
     wire rx_valid, tx_valid;
     wire [9 : 0]    rx_data;
