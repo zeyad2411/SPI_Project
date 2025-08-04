@@ -42,59 +42,6 @@ module SPI_Slave (
       ADDR_DATA = 0;
   end
 
-     always @(posedge clk or negedge rst_n) begin
-    if (!rst_n) begin
-        bit_count    <= 0;
-        shift_reg    <= 10'b0;
-        rx_data      <= 10'b0;
-        rx_valid     <= 0;
-        receiving    <= 0;
-        tx_shift_reg <= 8'b0;
-        MISO         <= 1'b0;
-    end
-    else begin
-        rx_valid <= 0;
-
-        if (!SS_n && !receiving) begin
-            // Start new SPI frame
-            receiving <= 1;
-            bit_count <= 0;
-
-            // Load tx_shift_reg only if tx_valid is high
-            if (tx_valid) begin
-                tx_shift_reg <= tx_data;
-            end
-        end
-        else if (receiving) begin
-            bit_count <= bit_count + 1;
-
-            // RX: Receive 10 bits after skipping the control bit
-            if (bit_count > 0 && bit_count <= 10) begin
-                shift_reg <= {MOSI, shift_reg[9:1]}; // MSB-first shift in
-            end
-
-            // TX: Transmit bits 0–7 on MISO (MSB-first)
-            if (bit_count < 8) begin
-                MISO <= tx_shift_reg[7];                     // Send MSB first
-                tx_shift_reg <= {tx_shift_reg[6:0], 1'b0};   // Shift left
-            end
-
-            // RX Complete
-            if (bit_count == 10) begin
-                rx_data   <= shift_reg;
-                rx_valid  <= 1;
-                receiving <= 0;
-            end
-        end
-        else if (SS_n) begin
-            // Reset state when deselected
-            bit_count <= 0;
-            receiving <= 0;
-        end
-    end
-end
-
-
   // Next state logic
   always @ (cs, SS_n, MOSI) begin
     case (cs)
@@ -151,9 +98,58 @@ end
     cs <= ns;
   end
 
-  // output logic 
-  always @(*) begin
+    // Output Logic
+    always @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        bit_count    <= 0;
+        shift_reg    <= 10'b0;
+        rx_data      <= 10'b0;
+        rx_valid     <= 0;
+        receiving    <= 0;
+        tx_shift_reg <= 8'b0;
+        MISO         <= 1'b0;
+    end
+    else begin
+        rx_valid <= 0;
 
-  end
+        if (!SS_n && !receiving) begin
+            // Start new SPI frame
+            receiving <= 1;
+            bit_count <= 0;
+
+            // Load tx_shift_reg only if tx_valid is high
+            if (tx_valid) begin
+                tx_shift_reg <= tx_data;
+            end
+        end
+        else if (receiving) begin
+            bit_count <= bit_count + 1;
+
+            // RX: Receive 10 bits after skipping the control bit
+            if (bit_count > 0 && bit_count <= 10) begin
+                shift_reg <= {MOSI, shift_reg[9:1]}; // MSB-first shift in
+            end
+
+            // TX: Transmit bits 0–7 on MISO (MSB-first)
+            if (bit_count < 8) begin
+                MISO <= tx_shift_reg[7];                     // Send MSB first
+                tx_shift_reg <= {tx_shift_reg[6:0], 1'b0};   // Shift left
+            end
+
+            // RX Complete
+            if (bit_count == 10) begin
+                rx_data   <= shift_reg;
+                rx_valid  <= 1;
+                receiving <= 0;
+            end
+        end
+        else if (SS_n) begin
+            // Reset state when deselected
+            bit_count <= 0;
+            receiving <= 0;
+        end
+    end
+end
+
 
 endmodule
