@@ -10,7 +10,7 @@ z2
 cModel Technology
 dC:/Users/User/Documents/Digital/Projects/Project1_DSP
 vRAM
-Z0 !s110 1754341924
+Z0 !s110 1754343076
 !i10b 1
 !s100 CPk1DSBjJ82UDzF>5bBhU2
 I^]?nk5WlPDPcAACSbJ^zd0
@@ -18,14 +18,14 @@ Z1 dC:/Users/User/Documents/My-Github/SPI_Project
 w1754334481
 8C:/Users/User/Documents/My-Github/SPI_Project/RAM.v
 FC:/Users/User/Documents/My-Github/SPI_Project/RAM.v
-!i122 5
+!i122 8
 L0 1 61
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 Z3 OL;L;2021.1;73
 r1
 !s85 0
 31
-Z4 !s108 1754341924.000000
+Z4 !s108 1754343076.000000
 !s107 C:/Users/User/Documents/My-Github/SPI_Project/RAM.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/User/Documents/My-Github/SPI_Project/RAM.v|
 !i113 0
@@ -41,7 +41,7 @@ R1
 w1754341107
 8C:\Users\User\Documents\My-Github\SPI_Project\SPI_Slave.v
 FC:\Users\User\Documents\My-Github\SPI_Project\SPI_Slave.v
-!i122 4
+!i122 7
 L0 1 152
 R2
 R3
@@ -55,6 +55,28 @@ R4
 R5
 R6
 n@s@p@i_@slave
+vspi_tb
+R0
+!i10b 1
+!s100 ^=YG^VSd6j[nJlnZ[HB4i0
+Id2kng6@BzlWC8biJUo1f43
+R1
+w1754343010
+8C:\Users\User\Documents\My-Github\SPI_Project\SPI_tb.v
+FC:\Users\User\Documents\My-Github\SPI_Project\SPI_tb.v
+!i122 10
+L0 1 44
+R2
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:\Users\User\Documents\My-Github\SPI_Project\SPI_tb.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:\Users\User\Documents\My-Github\SPI_Project\SPI_tb.v|
+!i113 0
+R5
+R6
 vspi_wrapper
 R0
 !i10b 1
@@ -64,7 +86,7 @@ R1
 w1754341918
 8C:\Users\User\Documents\My-Github\SPI_Project\Main(Wrapper).v
 FC:\Users\User\Documents\My-Github\SPI_Project\Main(Wrapper).v
-!i122 6
+!i122 9
 L0 1 29
 R2
 R3

@@ -19,4 +19,11 @@ QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
 Top level modules:
 	RAM
 
+} {} {}} C:/Users/User/Documents/My-Github/SPI_Project/SPI_tb.v {1 {vlog -work work -vopt -stats=none {C:\Users\User\Documents\My-Github\SPI_Project\SPI_tb.v}
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module spi_tb
+
+Top level modules:
+	spi_tb
+
 } {} {}}
