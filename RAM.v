@@ -19,24 +19,25 @@ module RAM (
 
   reg [ADDR_SIZE-1:0] addr_rd, addr_wr;
 
-  always @(posedge clk or negedge rst_n) begin
+  always @(posedge clk) begin
     if (rst_n == 0) begin
-      dout <= 0;
+      dout <= 8'b0;
       tx_valid <= 0;
-      addr_rd <= 0;
-      addr_wr <= 0;
+      addr_rd <= 8'b0;
+      addr_wr <= 8'b0;
     end
     else begin
-      tx_valid <= 0; // Default low unless it's a read operation with din[9:8] = 2'b11
       case (din[9])
         0: begin
           if (rx_valid == 1) begin
             case (din[8])
               0: begin
-                addr_wr <= din[7:0];
+                addr_wr <= din[7:0];  //write address
+                tx_valid <= 0;
               end
               1: begin
                 mem[addr_wr] <= din[7:0];
+                tx_valid <= 0;
               end
             endcase
           end
@@ -47,6 +48,7 @@ module RAM (
             case (din[8])
               0: begin
                 addr_rd <= din[7:0];
+                tx_valid <= 0;
               end
               1: begin
                 dout <= mem[addr_rd];

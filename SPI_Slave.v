@@ -1,152 +1,168 @@
 module SPI_Slave (
-                  MOSI,
-                  MISO,
-                  SS_n,
-                  clk,
-                  rst_n,
-                  rx_data,
-                  rx_valid,
-                  tx_data,
-                  tx_valid
-                  );
-  // inputs 
-  input clk , rst_n , MOSI , SS_n , tx_valid;
-  input [7:0] tx_data;
+input MOSI     ,
+      tx_valid ,
+      SS_n     ,
+      clk      ,
+      rst_n    ,
+input [7:0] tx_data , 
+output reg  MISO     ,
+            rx_valid ,
+output reg [9:0]  rx_data  
+);
 
-  // outputs
-  output reg rx_valid , MISO ;
-  output  reg [9:0] rx_data;
+// States:
+parameter IDLE      = 3'b000;
+parameter CHK_CMD   = 3'b001;
+parameter WRITE     = 3'b010;
+parameter READ_DATA = 3'b011;
+parameter READ_ADD  = 3'b100;
 
-  // current state an next state
-  reg [2:0] cs,ns;
+// current and next states:
+reg [2:0] cs , ns ;
 
-  // internal wires and signals
-  reg [3:0] bit_count = 3'b000;   // Counts up to 10  
-  reg ADDR_DATA = 0;             //to check whether we received a addres or not
-  reg [9:0] shift_reg;
-  reg receiving;
-  reg [7:0] tx_shift_reg;
-  reg ctrl_bit;
 
-  // SPI FSM states
-  parameter IDLE       = 3'b000;
-  parameter CHK_CMD    = 3'b001;
-  parameter WRITE      = 3'b010;
-  parameter READ_ADD  = 3'b011;
-  parameter READ_DATA  = 3'b100;
+// internal signals: 
+reg ADD_or_DATA;// if 0 -> ADD , if 1 ->DATA
+reg [3:0] counter1; // to handle the SERIAL to PARALLEL 
+reg [2:0] counter2; // to handle the PARALLEL to SERIAL
+reg [9:0] internal_data; // to take the data before it's loaded to the rx_data
 
-  // ADDR_DATA Logic
-  always @(*) begin
-    if(cs == READ_ADD)
-      ADDR_DATA = 1;
-    else
-      ADDR_DATA = 0;
-  end
+//state memory 
+always @(posedge clk)
+begin
+    if(~rst_n) 
+        cs <= IDLE;
+    else 
+        cs <= ns ;
+end
 
-  // Next state logic
-  always @ (cs, SS_n, MOSI) begin
-    case (cs)
-      IDLE: begin
-        if (SS_n == 1) begin
+
+// Next state logic:
+always @(*) begin
+  case (cs)
+    IDLE: begin
+    if (SS_n) begin
+        ns = IDLE;
+    end
+    else begin
+      ns = CHK_CMD;
+    end
+    end 
+
+    CHK_CMD: begin
+        if (SS_n) begin
           ns = IDLE;
         end
-        else if (SS_n == 0) begin
-          ns = CHK_CMD;
+        else begin
+      case (MOSI)
+       0: begin
+         ns = WRITE;
+       end
+
+       1: begin
+      case (ADD_or_DATA)
+        0: begin
+          ns = READ_ADD;
+        end 
+        1: begin
+          ns = READ_DATA;
         end
-      end 
-      CHK_CMD: begin
-        case(SS_n)
-        //! Could need to add logic of MOSI Firt Bit
-          0:  case(MOSI)
-                1:  case(ADDR_DATA)
-                      0: ns = READ_ADD;
-                      1: ns = READ_DATA;
-                    endcase
-                0:  ns = WRITE;
-              endcase
-          1:  ns = IDLE;
-        endcase
-      end
-      WRITE: begin
-        //! Could need to add RX_Valid
-        case(SS_n)
-          0: ns = WRITE;
-          1: ns = IDLE;
-        endcase
-      end 
-      READ_ADD: begin
-        case(SS_n)
-          0: ns = READ_ADD;
-          1: ns = IDLE;
-        endcase
-      end 
-      READ_DATA: begin
-        case(SS_n)
-          0: ns = READ_DATA;
-          1: ns = IDLE;
-        endcase
-      end 
-      default: ns=IDLE;
-    endcase
-  end
+      endcase
+       end 
+      endcase
+        end
+    end 
 
-  // State memory 
-  always @ (posedge clk or negedge rst_n) begin
-    if (~rst_n) begin
-      cs <= IDLE;
-    end
-    else 
-    cs <= ns;
-  end
-
-    // Output Logic
-  always @(posedge clk or negedge rst_n) begin
-  if (!rst_n) begin
-      bit_count    <= 0;
-      shift_reg    <= 10'b0;
-      rx_data      <= 10'b0;
-      rx_valid     <= 0;
-      receiving    <= 0;
-      tx_shift_reg <= 8'b0;
-      MISO         <= 1'b0;
-  end
-  else begin
-    rx_valid <= 0;
-    if (!SS_n && !receiving) begin
-      // Start new SPI frame
-      receiving <= 1;
-      bit_count <= 0;
-      // Load tx_shift_reg only if tx_valid is high
-      if (tx_valid) begin
-        tx_shift_reg <= tx_data;
+    WRITE: begin
+      if (SS_n) begin
+        ns = IDLE;
       end
-    end
-    else if (receiving) begin
-      bit_count <= bit_count + 1;
-      if (bit_count == 0) begin
-      ctrl_bit <= MOSI;
+      else if (!SS_n && !rx_valid) begin
+        ns = WRITE;
       end
-      // RX: Receive 10 bits after skipping the control bit
-      else if (bit_count > 0 && bit_count <= 10) begin
-        shift_reg <= {MOSI, shift_reg[9:1]}; // MSB-first shift in
+    end 
+    READ_ADD: begin
+       if (SS_n) begin
+        ns = IDLE;
       end
-      // TX: Transmit bits 0–7 on MISO (MSB-first)
-      if (bit_count < 8) begin
-        MISO <= tx_shift_reg[7];                     // Send MSB first
-        tx_shift_reg <= {tx_shift_reg[6:0], 1'b0};   // Shift left
+      else if (!SS_n && !tx_valid) begin
+        ns = READ_ADD;
       end
-      // RX Complete
-      if (bit_count == 10) begin
-        rx_data   <= shift_reg;
-        rx_valid  <= 1;
-        receiving <= 0;
+    end 
+    READ_DATA: begin
+       if (SS_n) begin
+        ns = IDLE;
       end
-    end
-    else if (SS_n) begin
-      // Reset state when deselected
-      bit_count <= 0;
-      receiving <= 0;
+      else if (!SS_n && !tx_valid) begin
+        ns = READ_DATA;
       end
-  end
+    end 
+  endcase
 end
+
+// Output logic:
+    always @(posedge clk) begin
+      if (~rst_n) begin
+        rx_data <= 8'b0;
+        rx_valid <= 0;
+        ADD_or_DATA <= 0; //reading the addres first is the default
+        MISO <= 0; 
+      end
+      else begin
+        // handling the outputs & signals in the IDLE state
+        if (cs == IDLE) begin
+          counter1 <= 4'b1001; // to start sending by the MSB
+          counter2 <= 3'b111; // to start receiving by the MSB
+          internal_data <= 10'b0; //initilization with zeros
+          rx_valid <= 0;
+        end
+
+        // handling the outputs in the WRITE state
+       if (cs == WRITE) begin // conversion from serial to parallel happens here
+         if (counter1 >= 0 ) begin
+           internal_data[counter1] <= MOSI;
+           counter1 = counter1 - 1;
+         end
+         if (counter1 == 4'b1111) begin // if counter1=-1 (4'b1111) means that the conversion process is done
+           rx_data <= internal_data;
+           rx_valid <= 1;
+         end
+       end
+
+        // handling the outputs in the READ_ADD state
+        if (cs == READ_ADD) begin //same as WRITE state
+          if (counter1 >= 0 ) begin
+           internal_data[counter1] <= MOSI;
+           counter1 <= counter1 - 1;
+         end
+         if (counter1 == 4'b1111) begin // if counter1=-1 (4'b1111) means that the conversion process is done
+           rx_data <= internal_data;
+           rx_valid <= 1;
+         end
+        end
+ 
+        // handling the outputs in the READ_DATA state
+        if (cs == READ_DATA) begin
+          if (counter1 >= 0 ) begin
+           internal_data[counter1] <= MOSI;
+           counter1 = counter1 - 1;
+         end
+         if (counter1 == 4'b1111) begin // if counter1=-1 (4'b1111) means that the conversion process is done
+           rx_data <= internal_data;
+           rx_valid <= 1;
+           counter1 <= 9 ; //only and only in this case we will reset the counter as we won't go back to the IDLE state until the process ends
+           if (rx_valid ==1 ) rx_valid <= 0;
+         end 
+     // now the RAM knows that i will read data from it 
+     // RAM now send the data on the tx_data 
+    if (tx_valid && (counter2 >= 0)) begin
+      MISO <= tx_data[counter2]; // sending the data and converting it from parallel to series
+      counter2 <= counter2 -1 ;
+    end
+    if (counter2 == 3'b111) begin 
+      ADD_or_DATA <= 0; //now i want another address to read the data from
+    end
+        end
+      end
+    end
 endmodule

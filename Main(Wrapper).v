@@ -1,29 +1,37 @@
-module spi_wrapper(
-    input   MOSI,
-            SS_n,
-            clk,
-            rst_n,
-    output  MISO
+module SPI_Wrapper #(parameter MEM_DEPTH = 256, parameter ADDR_SIZE = 8)(
+    input clk, ss_n, MOSI, rst_n,
+    output MISO
 );
-    wire rx_valid, tx_valid;
-    wire [9 : 0]    rx_data;
-    wire [7 : 0]    tx_data;
 
-    SPI_Slave slave(.MOSI(MOSI),
-                    .MISO(MISO),
-                    .SS_n(SS_n),
-                    .clk(clk),
-                    .rst_n(rst_n),
-                    .rx_data(rx_data),
-                    .rx_valid(rx_valid),
-                    .tx_data(tx_data),
-                    .tx_valid(tx_valid));
-                    
-    RAM ram(.din(rx_data),
-            .rx_valid(rx_valid),
-            .dout(tx_data),
-            .tx_valid(tx_valid),
-            .clk(clk),
-            .rst_n(rst_n));
+// Internal wires
+wire [9:0] rxdata;
+wire [7:0] txdata;
+wire rx_valid, tx_valid;
+
+// SPI Slave instance
+SPI_Slave SPI (
+    .MOSI(MOSI),
+    .MISO(MISO),
+    .clk(clk),
+    .SS_n(ss_n),
+    .rst_n(rst_n),
+    .rx_data(rxdata),
+    .tx_data(txdata),
+    .rx_valid(rx_valid),
+    .tx_valid(tx_valid)
+);
+
+// RAM instance
+RAM #(
+    .MEM_DEPTH(MEM_DEPTH),
+    .ADDR_SIZE(ADDR_SIZE)
+) Ram (
+    .din(rxdata),
+    .dout(txdata),
+    .clk(clk),
+    .rx_valid(rx_valid),
+    .tx_valid(tx_valid),
+    .rst_n(rst_n)
+);
 
 endmodule
