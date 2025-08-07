@@ -1,0 +1,12 @@
+Index@CheckId@Status@Category@DesignCategory@Severity@FileId@Module@ArgList@ClusterInfo@OldRtlId
+b1224321@0@uninspected@Rtl Design Style@Rtl Design Style@Info@0@"SPI_Slave"@"0:7#1:5#2:SPI_Slave#3:C:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v#"@"0"@""
+3776b834@1@uninspected@Rtl Design Style@Rtl Design Style@Warning@0@"SPI_Slave"@"0:counter1#1:SPI_Slave#2:C:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v#3:4#"@"0"@""
+b25edcee@1@uninspected@Rtl Design Style@Rtl Design Style@Warning@0@"SPI_Slave"@"0:rx_data#1:SPI_Slave#2:C:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v#3:3#"@"0"@""
+f4fc5312@1@uninspected@Rtl Design Style@Rtl Design Style@Warning@0@"SPI_Slave"@"0:rx_valid#1:SPI_Slave#2:C:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v#3:4#"@"0"@""
+9a06b9fe@1@uninspected@Rtl Design Style@Rtl Design Style@Warning@0@"SPI_Slave"@"0:ADD_or_DATA#1:SPI_Slave#2:C:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v#3:2#"@"0"@""
+8e35b5df@1@uninspected@Rtl Design Style@Rtl Design Style@Warning@0@"SPI_Slave"@"0:counter2#1:SPI_Slave#2:C:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v#3:2#"@"0"@""
+ba24b45d@2@uninspected@Nomenclature Style@Nomenclature Style@Info@1,2@"RAM"@"0:MEM_DEPTH#1:2#2:RAM#3:C:/Users/User/Documents/My-Github/SPI_Project/RAM.v#5:SPI_Wrapper#6:C:/Users/User/Documents/My-Github/SPI_Project/Wrapper.v#"@""@""
+8d79670a@2@uninspected@Nomenclature Style@Nomenclature Style@Info@1,2@"RAM"@"0:ADDR_SIZE#1:2#2:RAM#3:C:/Users/User/Documents/My-Github/SPI_Project/RAM.v#5:SPI_Wrapper#6:C:/Users/User/Documents/My-Github/SPI_Project/Wrapper.v#"@""@""
+ca78f81a@3@uninspected@Rtl Design Style@Rtl Design Style@Info@1@"RAM"@"0:RAM#1:C:/Users/User/Documents/My-Github/SPI_Project/RAM.v#"@"0"@""
+fd033dd7@3@uninspected@Rtl Design Style@Rtl Design Style@Info@2@"SPI_Wrapper"@"0:SPI_Wrapper#1:C:/Users/User/Documents/My-Github/SPI_Project/Wrapper.v#"@"0"@""
+

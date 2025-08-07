@@ -1,0 +1,115 @@
+====================================================================================================
+Lint Check Report
+Questa Lint  Version 2021.1 4558100 win64 28-Jan-2021
+
+Timestamp            : Thu Aug  7 18:07:50 2025
+Description          : Report for referring checks count, check violations details, and  design information
+Design               : SPI_Wrapper
+Database             : C:/Users/User/Documents/My-Github/SPI_Project/lint.db
+Design Quality Score : 99.1%
+
+Sections:
+   Section 1 : Check Summary
+   Section 2 : Check Details
+   Section 3 : Design Information
+====================================================================================================
+
+
+====================================================================================================
+Section 1 : Check Summary
+====================================================================================================
+-------------
+| Error (0) |
+-------------
+
+---------------
+| Warning (5) |
+---------------
+  seq_block_has_duplicate_assign          : 5
+
+------------
+| Info (5) |
+------------
+  parameter_name_duplicate                : 2
+  always_signal_assign_large              : 1
+  multi_ports_in_single_line              : 2
+
+----------------
+| Resolved (0) |
+----------------
+
+
+====================================================================================================
+Section 2 : Check Details
+====================================================================================================
+-------------
+| Error (0) |
+-------------
+
+
+---------------
+| Warning (5) |
+---------------
+
+Check: seq_block_has_duplicate_assign [Category: Rtl Design Style] (5)
+       [Message: Signal is assigned more than once in a sequential block. Signal '<signal>', Module '<module>', File '<file>', Total Assigns Count '<count>', First Assign at Line '<line1>', Second Assign at Line '<line2>'.]
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+seq_block_has_duplicate_assign: [uninspected] Signal is assigned more than once in a sequential block. Signal 'counter1', Module 'SPI_Slave', File 'C:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v', Total Assigns Count '4', First Assign at Line '125', Second Assign at Line '137'.
+
+seq_block_has_duplicate_assign: [uninspected] Signal is assigned more than once in a sequential block. Signal 'rx_data', Module 'SPI_Slave', File 'C:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v', Total Assigns Count '3', First Assign at Line '128', Second Assign at Line '140'.
+
+seq_block_has_duplicate_assign: [uninspected] Signal is assigned more than once in a sequential block. Signal 'rx_valid', Module 'SPI_Slave', File 'C:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v', Total Assigns Count '4', First Assign at Line '129', Second Assign at Line '141'.
+
+seq_block_has_duplicate_assign: [uninspected] Signal is assigned more than once in a sequential block. Signal 'ADD_or_DATA', Module 'SPI_Slave', File 'C:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v', Total Assigns Count '2', First Assign at Line '142', Second Assign at Line '167'.
+
+seq_block_has_duplicate_assign: [uninspected] Signal is assigned more than once in a sequential block. Signal 'counter2', Module 'SPI_Slave', File 'C:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v', Total Assigns Count '2', First Assign at Line '156', Second Assign at Line '164'.
+
+
+
+------------
+| Info (5) |
+------------
+
+Check: parameter_name_duplicate [Category: Nomenclature Style] (2)
+       [Message: Same parameter name is used in more than one module. Parameter '<parameter>', Total count '<count>', First module: Module '<module1>', File '<file1>', Line '<line1>', Second module: Module '<module2>', File '<file2>', Line '<line2>']
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+parameter_name_duplicate: [uninspected] Same parameter name is used in more than one module. Parameter 'MEM_DEPTH', Total count '2', First module: Module 'RAM', File 'C:/Users/User/Documents/My-Github/SPI_Project/RAM.v', Line '10', Second module: Module 'SPI_Wrapper', File 'C:/Users/User/Documents/My-Github/SPI_Project/Wrapper.v', Line '1'
+
+parameter_name_duplicate: [uninspected] Same parameter name is used in more than one module. Parameter 'ADDR_SIZE', Total count '2', First module: Module 'RAM', File 'C:/Users/User/Documents/My-Github/SPI_Project/RAM.v', Line '11', Second module: Module 'SPI_Wrapper', File 'C:/Users/User/Documents/My-Github/SPI_Project/Wrapper.v', Line '1'
+
+
+Check: always_signal_assign_large [Category: Rtl Design Style] (1)
+       [Message: Always block has more signal assignments than the specified limit. Total count '<count>', Specified limit '<limit>', Module '<module>', File '<file>', Line '<line>'.]
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+always_signal_assign_large: [uninspected] Always block has more signal assignments than the specified limit. Total count '7', Specified limit '5', Module 'SPI_Slave', File 'C:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v', Line '102'.
+
+
+Check: multi_ports_in_single_line [Category: Rtl Design Style] (2)
+       [Message: Multiple ports are declared in one line. Module '<module>', File '<file>', Line '<line>'.]
+------------------------------------------------------------------------------------------------------------
+multi_ports_in_single_line: [uninspected] Multiple ports are declared in one line. Module 'RAM', File 'C:/Users/User/Documents/My-Github/SPI_Project/RAM.v', Line '14'.
+
+multi_ports_in_single_line: [uninspected] Multiple ports are declared in one line. Module 'SPI_Wrapper', File 'C:/Users/User/Documents/My-Github/SPI_Project/Wrapper.v', Line '2'.
+
+
+
+----------------
+| Resolved (0) |
+----------------
+
+
+
+====================================================================================================
+Section 3 : Design Information
+====================================================================================================
+-----------
+| Summary |
+-----------
+  Register Bits                           : 66
+  Latch Bits                              : 3
+  User-specified Blackboxes               : 0
+  Inferred Blackboxes                     : 0
+  Empty Modules                           : 0
+  Unresolved Modules                      : 0
+  Hierarchical IPs                        : 0
+

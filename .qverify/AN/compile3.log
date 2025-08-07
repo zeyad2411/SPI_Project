@@ -1,0 +1,9 @@
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+Start time: 18:06:52 on Aug 07,2025
+vlog C:/Users/User/Documents/My-Github/SPI_Project/Wrapper.v -work work 
+-- Compiling module SPI_Wrapper
+
+Top level modules:
+	SPI_Wrapper
+End time: 18:06:52 on Aug 07,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0

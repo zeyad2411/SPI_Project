@@ -1,0 +1,6 @@
+0@#@counter1
+1@#@rx_data
+2@#@rx_valid
+3@#@ADD_or_DATA
+4@#@counter2
+

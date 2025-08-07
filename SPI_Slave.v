@@ -27,6 +27,8 @@ reg [3:0] counter1; // to handle the SERIAL to PARALLEL
 reg [2:0] counter2; // to handle the PARALLEL to SERIAL
 reg [9:0] internal_data; // to take the data before it's loaded to the rx_data
 
+(* fsm_encoding = "gray" *)   //this is the fastest one after expreiments 
+
 //state memory 
 always @(posedge clk)
 begin
@@ -99,16 +101,19 @@ end
 // Output logic:
     always @(posedge clk) begin
       if (~rst_n) begin
-        rx_data <= 8'b0;
+        rx_data <= 10'b0;
         rx_valid <= 0;
         ADD_or_DATA <= 0; //reading the addres first is the default
         MISO <= 0; 
+        counter1 <= 9;
+        counter2 <= 7;
+        internal_data <= 10'b0;
       end
       else begin
         // handling the outputs & signals in the IDLE state
         if (cs == IDLE) begin
-          counter1 <= 4'b1001; // to start sending by the MSB
-          counter2 <= 3'b111; // to start receiving by the MSB
+          counter1 <= 9; // to start sending by the MSB
+          counter2 <= 7; // to start receiving by the MSB
           internal_data <= 10'b0; //initilization with zeros
           rx_valid <= 0;
         end
@@ -117,7 +122,7 @@ end
        if (cs == WRITE) begin // conversion from serial to parallel happens here
          if (counter1 >= 0 ) begin
            internal_data[counter1] <= MOSI;
-           counter1 = counter1 - 1;
+           counter1 <= counter1 - 1;
          end
          if (counter1 == 4'b1111) begin // if counter1=-1 (4'b1111) means that the conversion process is done
            rx_data <= internal_data;
@@ -134,6 +139,7 @@ end
          if (counter1 == 4'b1111) begin // if counter1=-1 (4'b1111) means that the conversion process is done
            rx_data <= internal_data;
            rx_valid <= 1;
+           ADD_or_DATA <= 1;
          end
         end
  
@@ -141,14 +147,16 @@ end
         if (cs == READ_DATA) begin
           if (counter1 >= 0 ) begin
            internal_data[counter1] <= MOSI;
-           counter1 = counter1 - 1;
+           counter1 <= counter1 - 1;
          end
          if (counter1 == 4'b1111) begin // if counter1=-1 (4'b1111) means that the conversion process is done
            rx_data <= internal_data;
            rx_valid <= 1;
            counter1 <= 9 ; //only and only in this case we will reset the counter as we won't go back to the IDLE state until the process ends
-           if (rx_valid ==1 ) rx_valid <= 0;
-         end 
+           counter2 <= 7;
+         end
+         if (rx_valid == 1) rx_valid <= 0; //only and only in this case we will reset the rx_valid as we won't go back to the IDLE state until the process ends
+         
      // now the RAM knows that i will read data from it 
      // RAM now send the data on the tx_data 
     if (tx_valid && (counter2 >= 0)) begin

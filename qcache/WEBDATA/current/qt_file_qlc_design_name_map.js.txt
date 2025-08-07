@@ -1,0 +1,4 @@
+0@#@C:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v
+1@#@C:/Users/User/Documents/My-Github/SPI_Project/RAM.v
+2@#@C:/Users/User/Documents/My-Github/SPI_Project/Wrapper.v
+

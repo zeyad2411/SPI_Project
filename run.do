@@ -2,7 +2,7 @@
 vlib work
 
 # Compile the design wrapper and testbench
-vlog Main(Wrapper).v       ;# Top-level design module (SPI_Slave is instantiated here)
+vlog Wrapper.v       ;# Top-level design module (SPI_Slave is instantiated here)
 vlog SPI_tb.v        ;# Testbench for wrapper
 vlog RAM.v
 # Load the simulation for the testbench

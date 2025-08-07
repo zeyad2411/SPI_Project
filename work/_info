@@ -11,6 +11,9 @@ R0
 R0
 R0
 R0
+R0
+R0
+R0
 !s11f vlog 2021.1 2021.01, Jan 19 2021
 13
 !s112 1.1
@@ -20,217 +23,216 @@ R0
 cModel Technology
 Z1 dC:/Users/User/Documents/Digital/Projects/Project1_DSP
 T_opt
-!s110 1754502445
-VWib<IHBViEKM8UKKI[5KU3
-04 6 4 work SPI_tb fast 0
-=1-04bf1b248e8d-6893952c-3af-4d38
-Z2 !s124 OEM100
-Z3 o-quiet -auto_acc_if_foreign -work work +acc
-Z4 tCvgOpt 0
+!s110 1754536392
+VzOQ=h3YG5M[@f7XO@A`=F3
+Z2 04 6 4 work SPI_tb fast 0
+=1-04bf1b248e8d-689419c8-208-345c
+Z3 !s124 OEM100
+Z4 o-quiet -auto_acc_if_foreign -work work +acc
+Z5 tCvgOpt 0
 n@_opt
-Z5 OL;O;2021.1;73
+Z6 OL;O;2021.1;73
 R1
 T_opt1
-!s110 1754414340
-Ve2SLK6h;=7A=Z344TEO8z3
-04 6 4 work spi_tb fast 0
-=1-04bf1b248e8d-68923d03-283-24d4
+Z7 !s110 1754574970
+Vj<;76o]7hYPWDMEz]3YG`2
 R2
+=1-04bf1b248e8d-6894b07a-2f6-2e2c
 R3
 R4
-n@_opt1
 R5
-R1
+n@_opt1
+R6
 T_opt2
 !s110 1754415728
 V1WaGBJlozTUle?2d`3Sc=1
 04 14 4 work SPI_Wrapper_tb fast 0
 =1-04bf1b248e8d-6892426f-3b0-2940
-R2
 R3
 R4
-n@_opt2
 R5
+n@_opt2
+R6
 R1
 vRAM
-Z6 !s110 1754504103
+R7
 !i10b 1
 !s100 FnFTU4nMo`<2mbP<074IQ0
 I5CJ;E6FZfi`g43Cd:h`kF1
-Z7 dC:/Users/User/Documents/My-Github/SPI_Project
+Z8 dC:/Users/User/Documents/My-Github/SPI_Project
 w1754492850
 8RAM.v
 FRAM.v
-!i122 141
+!i122 162
 L0 1 63
-Z8 VDg1SIo80bB@j0V0VzS_@n1
-Z9 OL;L;2021.1;73
+Z9 VDg1SIo80bB@j0V0VzS_@n1
+Z10 OL;L;2021.1;73
 r1
 !s85 0
 31
-Z10 !s108 1754504103.000000
+Z11 !s108 1754574970.000000
 !s107 RAM.v|
 !s90 -reportprogress|300|RAM.v|
 !i113 0
-Z11 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-R4
+Z12 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R5
 n@r@a@m
+vSPI_Slave
+!s110 1754574943
+!i10b 1
+!s100 __V<[i4;bm`KbY]J>NJ:X1
+IZCh5T3zin>UlRa^:0RZ@Q3
+R8
+w1754536369
+8C:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v
+FC:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v
+!i122 156
+L0 1 170
+R9
+R10
+r1
+!s85 0
+31
+!s108 1754574943.000000
+!s107 C:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v|
+!i113 0
+o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R5
+n@s@p@i_@slave
 vSPI_SLAVE
-Z12 !s110 1754415722
+Z13 !s110 1754415722
 !i10b 1
 !s100 4XMA4cjO<5HO850Z05hc03
 I0_`K>IJcO?P__Jnc@oK`O2
-R7
+R8
 w1754415555
 8SPI_Slave.v
 FSPI_Slave.v
 !i122 114
 L0 2 135
-R8
 R9
-r1
-!s85 0
-31
-Z13 !s108 1754415722.000000
-Z14 !s107 SPI_tb.v|Main(Wrapper).v|RAM.v|SPI_Slave.v|
-Z15 !s90 -reportprogress|300|SPI_Slave.v|RAM.v|Main(Wrapper).v|SPI_tb.v|
-!i113 0
-R11
-R4
-n@s@p@i_@s@l@a@v@e
-vSPI_Slave
-!s110 1754502435
-!i10b 1
-!s100 G_2U`;?h_hV[3A]4?KZG`3
-IS3OQ<3WZ^?3F[`k71O_P=2
-R7
-w1754500998
-8C:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v
-FC:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v
-!i122 132
-L0 1 168
-R8
-R9
-r1
-!s85 0
-31
-!s108 1754502435.000000
-!s107 C:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v|
-!i113 0
-o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-R4
-n@s@p@i_@slave
-vSPI_tb
-R6
-!i10b 1
-!s100 1z;^RE71e^iUdnJiU5z4K1
-IAOde@1caOJkQFnQi:liCQ1
-R7
-w1754501442
-Z16 8SPI_tb.v
-Z17 FSPI_tb.v
-!i122 140
-L0 1 161
-R8
-R9
-r1
-!s85 0
-31
 R10
-Z18 !s107 SPI_tb.v|
-Z19 !s90 -reportprogress|300|SPI_tb.v|
+r1
+!s85 0
+31
+Z14 !s108 1754415722.000000
+Z15 !s107 SPI_tb.v|Main(Wrapper).v|RAM.v|SPI_Slave.v|
+Z16 !s90 -reportprogress|300|SPI_Slave.v|RAM.v|Main(Wrapper).v|SPI_tb.v|
 !i113 0
-R11
-R4
-n@s@p@i_tb
+R12
+R5
+n@s@p@i_@s@l@a@v@e
 vspi_tb
-Z20 !s110 1754415438
+Z17 !s110 1754415438
 !i10b 1
 !s100 XN1c565Ibn7V8L1LBjLOk1
 IV7Ob<zI7eg39oQB3C^bCP0
-R7
+R8
 w1754411676
-R16
-R17
+Z18 8SPI_tb.v
+Z19 FSPI_tb.v
 !i122 108
 L0 1 157
-R8
 R9
+R10
 r1
 !s85 0
 31
-Z21 !s108 1754415438.000000
+Z20 !s108 1754415438.000000
+Z21 !s107 SPI_tb.v|
+Z22 !s90 -reportprogress|300|SPI_tb.v|
+!i113 0
+R12
+R5
+vSPI_tb
+R7
+!i10b 1
+!s100 1z;^RE71e^iUdnJiU5z4K1
+IAOde@1caOJkQFnQi:liCQ1
+R8
+w1754501442
 R18
 R19
-!i113 0
-R11
-R4
-vSPI_Wrapper
-R6
-!i10b 1
-!s100 VMGn@LW76Em8X4^HYm6JN2
-IiJX<0^=?@g47Wz8mjF`080
-R7
-w1754502427
-Z22 8Main(Wrapper).v
-Z23 FMain(Wrapper).v
-!i122 139
-L0 1 37
-R8
+!i122 161
+L0 1 161
 R9
+R10
 r1
 !s85 0
 31
-R10
-Z24 !s107 Main(Wrapper).v|
-Z25 !s90 -reportprogress|300|Main(Wrapper).v|
-!i113 0
 R11
-R4
-n@s@p@i_@wrapper
+R21
+R22
+!i113 0
+R12
+R5
+n@s@p@i_tb
 vspi_wrapper
-R20
+R17
 !i10b 1
 !s100 0^kCc:zZ`cDZi2oYiSllO1
 I[=kmzSM6_:W8I=g3LN;o`3
-R7
+R8
 w1754341918
-R22
-R23
+Z23 8Main(Wrapper).v
+Z24 FMain(Wrapper).v
 !i122 107
 L0 1 29
-R8
 R9
+R10
 r1
 !s85 0
 31
-R21
-R24
-R25
+R20
+Z25 !s107 Main(Wrapper).v|
+Z26 !s90 -reportprogress|300|Main(Wrapper).v|
 !i113 0
-R11
-R4
-vSPI_Wrapper_tb
 R12
+R5
+vSPI_Wrapper
+R7
+!i10b 1
+!s100 VMGn@LW76Em8X4^HYm6JN2
+IiJX<0^=?@g47Wz8mjF`080
+R8
+w1754502427
+R23
+R24
+!i122 160
+L0 1 37
+R9
+R10
+r1
+!s85 0
+31
+R11
+R25
+R26
+!i113 0
+R12
+R5
+n@s@p@i_@wrapper
+vSPI_Wrapper_tb
+R13
 !i10b 1
 !s100 S0ETCHWS4V]2:60o^Gc:41
 I2Ge2l8D0W>7N2dZLZYTof2
-R7
+R8
 w1754415591
-R16
-R17
+R18
+R19
 !i122 114
 L0 2 157
-R8
 R9
+R10
 r1
 !s85 0
 31
-R13
 R14
 R15
+R16
 !i113 0
-R11
-R4
+R12
+R5
 n@s@p@i_@wrapper_tb
