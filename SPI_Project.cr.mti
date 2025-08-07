@@ -1,9 +1,9 @@
-C:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v {1 {vlog -work work -vopt -stats=none C:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v
+C:/Users/User/Documents/My-Github/SPI_Project/Main(Wrapper).v {1 {vlog -work work -vopt -stats=none C:/Users/User/Documents/My-Github/SPI_Project/Main(Wrapper).v
 QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
--- Compiling module SPI_Slave
+-- Compiling module SPI_Wrapper
 
 Top level modules:
-	SPI_Slave
+	SPI_Wrapper
 
 } {} {}} C:/Users/User/Documents/My-Github/SPI_Project/RAM.v {1 {vlog -work work -vopt -stats=none C:/Users/User/Documents/My-Github/SPI_Project/RAM.v
 QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021

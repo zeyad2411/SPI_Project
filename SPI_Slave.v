@@ -72,30 +72,26 @@ always @(*) begin
       endcase
         end
     end 
-
     WRITE: begin
-      if (SS_n) begin
+      if (SS_n || (counter1 == 4'b1111)) begin
         ns = IDLE;
       end
-      else if (!SS_n && !rx_valid) begin
+      else
         ns = WRITE;
-      end
     end 
     READ_ADD: begin
-       if (SS_n) begin
+       if (SS_n || (counter1 == 4'b1111)) begin
         ns = IDLE;
       end
-      else if (!SS_n && !tx_valid) begin
+      else
         ns = READ_ADD;
-      end
     end 
     READ_DATA: begin
        if (SS_n) begin
         ns = IDLE;
       end
-      else if (!SS_n && !tx_valid) begin
+      else
         ns = READ_DATA;
-      end
     end 
   endcase
 end

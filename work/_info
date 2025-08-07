@@ -29,6 +29,7 @@ Z3 o-quiet -auto_acc_if_foreign -work work +acc
 Z4 tCvgOpt 0
 n@_opt
 Z5 OL;O;2021.1;73
+R1
 T_opt1
 !s110 1754414340
 Ve2SLK6h;=7A=Z344TEO8z3
@@ -52,7 +53,7 @@ n@_opt2
 R5
 R1
 vRAM
-Z6 !s110 1754502443
+Z6 !s110 1754504103
 !i10b 1
 !s100 FnFTU4nMo`<2mbP<074IQ0
 I5CJ;E6FZfi`g43Cd:h`kF1
@@ -60,43 +61,20 @@ Z7 dC:/Users/User/Documents/My-Github/SPI_Project
 w1754492850
 8RAM.v
 FRAM.v
-!i122 138
+!i122 141
 L0 1 63
 Z8 VDg1SIo80bB@j0V0VzS_@n1
 Z9 OL;L;2021.1;73
 r1
 !s85 0
 31
-Z10 !s108 1754502443.000000
+Z10 !s108 1754504103.000000
 !s107 RAM.v|
 !s90 -reportprogress|300|RAM.v|
 !i113 0
 Z11 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R4
 n@r@a@m
-vSPI_Slave
-!s110 1754502435
-!i10b 1
-!s100 G_2U`;?h_hV[3A]4?KZG`3
-IS3OQ<3WZ^?3F[`k71O_P=2
-R7
-w1754500998
-8C:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v
-FC:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v
-!i122 132
-L0 1 168
-R8
-R9
-r1
-!s85 0
-31
-!s108 1754502435.000000
-!s107 C:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v|
-!i113 0
-o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-R4
-n@s@p@i_@slave
 vSPI_SLAVE
 Z12 !s110 1754415722
 !i10b 1
@@ -120,28 +98,29 @@ Z15 !s90 -reportprogress|300|SPI_Slave.v|RAM.v|Main(Wrapper).v|SPI_tb.v|
 R11
 R4
 n@s@p@i_@s@l@a@v@e
-vspi_tb
-Z16 !s110 1754415438
+vSPI_Slave
+!s110 1754502435
 !i10b 1
-!s100 XN1c565Ibn7V8L1LBjLOk1
-IV7Ob<zI7eg39oQB3C^bCP0
+!s100 G_2U`;?h_hV[3A]4?KZG`3
+IS3OQ<3WZ^?3F[`k71O_P=2
 R7
-w1754411676
-Z17 8SPI_tb.v
-Z18 FSPI_tb.v
-!i122 108
-L0 1 157
+w1754500998
+8C:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v
+FC:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v
+!i122 132
+L0 1 168
 R8
 R9
 r1
 !s85 0
 31
-Z19 !s108 1754415438.000000
-Z20 !s107 SPI_tb.v|
-Z21 !s90 -reportprogress|300|SPI_tb.v|
+!s108 1754502435.000000
+!s107 C:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/User/Documents/My-Github/SPI_Project/SPI_Slave.v|
 !i113 0
-R11
+o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R4
+n@s@p@i_@slave
 vSPI_tb
 R6
 !i10b 1
@@ -149,9 +128,9 @@ R6
 IAOde@1caOJkQFnQi:liCQ1
 R7
 w1754501442
-R17
-R18
-!i122 137
+Z16 8SPI_tb.v
+Z17 FSPI_tb.v
+!i122 140
 L0 1 161
 R8
 R9
@@ -159,31 +138,31 @@ r1
 !s85 0
 31
 R10
-R20
-R21
+Z18 !s107 SPI_tb.v|
+Z19 !s90 -reportprogress|300|SPI_tb.v|
 !i113 0
 R11
 R4
 n@s@p@i_tb
-vspi_wrapper
-R16
+vspi_tb
+Z20 !s110 1754415438
 !i10b 1
-!s100 0^kCc:zZ`cDZi2oYiSllO1
-I[=kmzSM6_:W8I=g3LN;o`3
+!s100 XN1c565Ibn7V8L1LBjLOk1
+IV7Ob<zI7eg39oQB3C^bCP0
 R7
-w1754341918
-Z22 8Main(Wrapper).v
-Z23 FMain(Wrapper).v
-!i122 107
-L0 1 29
+w1754411676
+R16
+R17
+!i122 108
+L0 1 157
 R8
 R9
 r1
 !s85 0
 31
+Z21 !s108 1754415438.000000
+R18
 R19
-Z24 !s107 Main(Wrapper).v|
-Z25 !s90 -reportprogress|300|Main(Wrapper).v|
 !i113 0
 R11
 R4
@@ -194,9 +173,9 @@ R6
 IiJX<0^=?@g47Wz8mjF`080
 R7
 w1754502427
-R22
-R23
-!i122 136
+Z22 8Main(Wrapper).v
+Z23 FMain(Wrapper).v
+!i122 139
 L0 1 37
 R8
 R9
@@ -204,12 +183,34 @@ r1
 !s85 0
 31
 R10
+Z24 !s107 Main(Wrapper).v|
+Z25 !s90 -reportprogress|300|Main(Wrapper).v|
+!i113 0
+R11
+R4
+n@s@p@i_@wrapper
+vspi_wrapper
+R20
+!i10b 1
+!s100 0^kCc:zZ`cDZi2oYiSllO1
+I[=kmzSM6_:W8I=g3LN;o`3
+R7
+w1754341918
+R22
+R23
+!i122 107
+L0 1 29
+R8
+R9
+r1
+!s85 0
+31
+R21
 R24
 R25
 !i113 0
 R11
 R4
-n@s@p@i_@wrapper
 vSPI_Wrapper_tb
 R12
 !i10b 1
@@ -217,8 +218,8 @@ R12
 I2Ge2l8D0W>7N2dZLZYTof2
 R7
 w1754415591
+R16
 R17
-R18
 !i122 114
 L0 2 157
 R8
