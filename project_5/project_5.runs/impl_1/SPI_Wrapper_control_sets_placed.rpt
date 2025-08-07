@@ -1,0 +1,75 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
+| Date         : Thu Aug  7 19:27:07 2025
+| Host         : DESKTOP-KQ2UU1D running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file SPI_Wrapper_control_sets_placed.rpt
+| Design       : SPI_Wrapper
+| Device       : xc7a35ti
+----------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |     8 |
+| Unused register locations in slices containing registers |    22 |
++----------------------------------------------------------+-------+
+
+
+2. Histogram
+------------
+
++--------+--------------+
+| Fanout | Control Sets |
++--------+--------------+
+|      2 |            1 |
+|      8 |            1 |
+|     10 |            2 |
+|    16+ |            4 |
++--------+--------------+
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              20 |            5 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              32 |            3 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              62 |            6 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------+-------------------------+-------------------------+------------------+----------------+
+|  Clock Signal  |      Enable Signal      |     Set/Reset Signal    | Slice Load Count | Bel Load Count |
++----------------+-------------------------+-------------------------+------------------+----------------+
+|  clk_IBUF_BUFG | Ram/MISO_reg            | SPI/rx_data_reg[0]_0    |                1 |              2 |
+|  clk_IBUF_BUFG | SPI/counter1[3]_i_2_n_0 | SPI/counter1[3]_i_1_n_0 |                1 |              8 |
+|  SPI/ns        |                         |                         |                2 |             10 |
+|  clk_IBUF_BUFG |                         |                         |                3 |             10 |
+|  clk_IBUF_BUFG | SPI/addr_rd_reg[7][0]   | SPI/rx_data_reg[0]_0    |                1 |             16 |
+|  clk_IBUF_BUFG | SPI/E[0]                | SPI/rx_data_reg[0]_0    |                1 |             16 |
+|  clk_IBUF_BUFG | SPI/rx_data[9]_i_1_n_0  | SPI/rx_data_reg[0]_0    |                2 |             20 |
+|  clk_IBUF_BUFG |                         | SPI/rx_data_reg[0]_0    |                3 |             32 |
++----------------+-------------------------+-------------------------+------------------+----------------+
+
+

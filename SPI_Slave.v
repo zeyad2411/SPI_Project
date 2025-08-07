@@ -17,6 +17,7 @@ parameter WRITE     = 3'b010;
 parameter READ_DATA = 3'b011;
 parameter READ_ADD  = 3'b100;
 
+(* fsm_encoding = "one_hot" *)   
 // current and next states:
 reg [2:0] cs , ns ;
 
@@ -27,7 +28,6 @@ reg [3:0] counter1; // to handle the SERIAL to PARALLEL
 reg [2:0] counter2; // to handle the PARALLEL to SERIAL
 reg [9:0] internal_data; // to take the data before it's loaded to the rx_data
 
-(* fsm_encoding = "gray" *)   //this is the fastest one after expreiments 
 
 //state memory 
 always @(posedge clk)
